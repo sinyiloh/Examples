@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web API</title>
+      <!-- Custom styles for this template -->
+      <link  rel="stylesheet" href="{{ url_for('static', filename='css/logo-nav.css') }}">
+
+    <!-- Bootstrap core CSS -->
+    <link  rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+
+<script>
+
+function setWine1() {
+        document.getElementById("fixed_acidity").value = "7.9"
+        document.getElementById("volatile_acidity").value = "0.35"
+        document.getElementById("citric_acid").value = "0.46"
+        document.getElementById("residual_sugar").value = "3.6"
+        document.getElementById("chlorides").value = "0.078"
+        document.getElementById("free_sulfur_dioxide").value = "15"
+        document.getElementById("total_sulfur_dioxide").value = "37"
+        document.getElementById("density").value = "0.9973"
+        document.getElementById("sulphates").value = "3.35"
+        document.getElementById("pH").value = "0.86"
+        document.getElementById("alcohol").value = "12.8"
+}
+
+
+function setWine2() {
+	document.getElementById("fixed_acidity").value = "11.8"
+	document.getElementById("volatile_acidity").value = "0.26"
+	document.getElementById("citric_acid").value = "0.52"
+	document.getElementById("residual_sugar").value = "1.8"
+	document.getElementById("chlorides").value = "0.071"
+	document.getElementById("free_sulfur_dioxide").value = "6"
+	document.getElementById("total_sulfur_dioxide").value = "10"
+	document.getElementById("density").value = "0.9968"
+	document.getElementById("sulphates").value = "3.2"
+	document.getElementById("pH").value = "0.72"
+	document.getElementById("alcohol").value = "10.2"
+}
+
+function setWine3() {
+        document.getElementById("fixed_acidity").value = "8.1"
+        document.getElementById("volatile_acidity").value = "0.87"
+        document.getElementById("citric_acid").value = "0"
+        document.getElementById("residual_sugar").value = "3.3"
+        document.getElementById("chlorides").value = "0.096"
+        document.getElementById("free_sulfur_dioxide").value = "26"
+        document.getElementById("total_sulfur_dioxide").value = "61"
+        document.getElementById("density").value = "1.00025"
+        document.getElementById("sulphates").value = "3.6"
+        document.getElementById("pH").value = "0.72"
+        document.getElementById("alcohol").value = "9.8"
+}
+</script>
+
+
+
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #e3f2fd;">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation$
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	    <!-- Page Content -->
+    <div class="container">
+      <h1 class="mt-5">Predict Wine Quality</h1>
+        <p>Using Machine Learning, this API PoC predicts Red Wine Quality based on chemical properties.</p>
+        <div class="row">
+            <div class="col-lg-6">
+			
+                <!-- The web form goes here -->
+
+		
+                <!-- 7.9,0.35,0.46,3.6,0.078,15,37,0.9973,3.35,0.86,12.8 -->
+				
+                <form action="/wine" method="post" id="wine_predict">
+				
+		     <!--- fixed_acidity -->
+                     <div>
+                        <label for="name">Fixed Acidity </label>
+                        <input type="text" id="fixed_acidity" name="fixed_acidity" value="7.9">
+                    </div>
+					
+					<!--- volatile_acidity -->
+                    <div>
+                        <label for="name">Volatile Acidity </label>
+                        <input type="text" id="volatile_acidity" name="volatile_acidity" value="0.35">
+                    </div>
+					
+					<!--- citric_acid -->
+                    <div>
+                        <label for="name">Citric Acidity</label>
+                        <input type="text" id="citric_acid" name="citric_acid" value="0.46">
+                    </div>
+					
+					<!--- residual_sugar -->
+                    <div>
+                        <label for="name">Residual Sugar</label>
+                        <input type="text" id="residual_sugar" name="residual_sugar" value="3.6">
+                    </div>
+					
+					<!--- chlorides -->
+                    <div>
+                        <label for="name">chlorides </label>
+                        <input type="text" id="chlorides" name="chlorides" value="0.078">
+                    </div>
+					
+					<!--- free_sulfur_dioxide -->
+                    <div>
+                        <label for="name">Free Sulfur Dioxide </label>
+                        <input type="text" id="free_sulfur_dioxide" name="free_sulfur_dioxide" value="15">
+                    </div>
+
+					<!-- total_sulfur_dioxide -->
+                     <div>
+                        <label for="name">Total Sulfur Dioxide</label>
+                        <input type="text" id="total_sulfur_dioxide" name="total_sulfur_dioxide" value="37">
+                    </div>
+					
+					<!--- density -->
+                     <div>
+                        <label for="name">Density</label>
+                        <input type="text" id="density" name="density" value="0.9973">
+                    </div>		
+
+					<!--- pH -->
+                     <div>
+                        <label for="name">pH</label>
+                        <input type="text" id="pH" name="pH" value="3.35">
+                    </div>
+
+					<!--- pH -->
+                     <div>
+                        <label for="name">Sulphates</label>
+                        <input type="text" id="sulphates" name="sulphates" value="0.86">
+                    </div>
+					
+					<!--- alcohol -->
+                     <div>
+                        <label for="name">Alcohol</label>
+                        <input type="text" id="alcohol" name="alcohol" value="12.8">
+                    </div>					
+					
+                </form>
+            <button class="btn" type="submit" form="wine_predict" value="Submit">Predict</button>
+</br></br><b>Load test sets</b>:
+<a id="myLink" title="Set values" href="#" onclick="setWine1();return false;">[Test 1]</a>
+<a id="myLink" title="Set values" href="#" onclick="setWine2();return false;">[Test 2]</a>
+<a id="myLink" title="Set values" href="#" onclick="setWine3();return false;">[Test 3]</a>
+            </div>
+
+
+            <div class="col-lg-6">
+                <!-- Result presentation goes here -->
+                {% if data.prediction %}
+                    <h1>Predicted Quality: {{data.prediction}}</h1>
+                        Quality Ranges from 1 (worst) to 10 (best)</br></br></br>
+                    <h3>JSON</h3>
+                    {{data.json}}
+                {% endif %}
+            </div>
+			
+        </div>
+        </div>
+    </div>
+
+				
